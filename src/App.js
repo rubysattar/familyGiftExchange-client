@@ -10,6 +10,8 @@ import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 
+import FamilyMembersCreate from './components/FamilyMembers/FamilyMembersCreate'
+
 class App extends Component {
   constructor () {
     super()
@@ -65,6 +67,17 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
+
+          {/* This is the family members Create component (/familyMembers/familyMembers-create) */}
+          <AuthenticatedRoute user={user} exact path='/familyMembers-create' render={({ match }) => (
+            <FamilyMembersCreate match ={match} msgAlert={this.msgAlert} user={user} />
+          )} />
+          {/* This is the family members Index component (/familyMembers) */}
+
+          {/* This is the family members Show component (/familyMembers/:id). Delete option would exist here. */}
+
+          {/* This is the family members Update component (/familyMembers/:id/familyMember-update */}
+
         </main>
       </Fragment>
     )
