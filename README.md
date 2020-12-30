@@ -1,5 +1,5 @@
 # Family Gift Exchange Front-end Application
-This is the front-end application for a family gift exchange application. I built this app to help my family have an organized space to list the gifts they want so that other family members can see and purchase those gifts for special events, like the holidays, birthdays, etc.
+This is the front-end for a family gift exchange application. I built this app to help my family have an organized space to list the gifts they want so that other family members can see and purchase those gifts for special events, like the holidays, birthdays, etc.
 
 ## Planning
 
