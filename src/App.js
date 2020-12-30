@@ -11,6 +11,8 @@ import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 
 import FamilyMembersCreate from './components/FamilyMembers/FamilyMembersCreate'
+import FamilyMembers from './components/FamilyMembers/FamilyMembers'
+import FamilyMember from './components/FamilyMembers/FamilyMember'
 
 class App extends Component {
   constructor () {
@@ -37,6 +39,8 @@ class App extends Component {
       return { msgAlerts: [...state.msgAlerts, { heading, message, variant, id }] }
     })
   }
+
+  setFamilyMember = (familyMemberId) => this.setState({ familyMemberId })
 
   render () {
     const { msgAlerts, user } = this.state
@@ -73,8 +77,14 @@ class App extends Component {
             <FamilyMembersCreate match ={match} msgAlert={this.msgAlert} user={user} />
           )} />
           {/* This is the family members Index component (/familyMembers) */}
+          <AuthenticatedRoute user={user} exact path='/familyMembers' render={() => (
+            <FamilyMembers user={user} setFamilyMember={this.setFamilyMember} msgAlert={this.msgAlert}/>
+          )}/>
 
           {/* This is the family members Show component (/familyMembers/:id). Delete option would exist here. */}
+          <AuthenticatedRoute user={user} exact path='/familyMembers/:id' render={({ match }) => (
+            <FamilyMember user={user} match={match} msgAlert={this.msgAlert} setFamilyMember={this.setFamilyMember}/>
+          )} />
 
           {/* This is the family members Update component (/familyMembers/:id/familyMember-update */}
 
